@@ -6,31 +6,17 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.3.2</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
+    <groupId>kg.aidar</groupId>
+    <artifactId>data-dynamo</artifactId>
+    <version>0.0.1</version>
+    <name>data-dynamo</name>
     <packaging>pom</packaging>
     <modules>
         <module>producer</module>
         <module>consumer</module>
     </modules>
-    <groupId>kg.aidar</groupId>
-    <artifactId>data-dynamo</artifactId>
-    <version>0.0.1</version>
-    <name>data-dynamo</name>
     <description>data-dynamo</description>
-    <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
     <properties>
         <java.version>17</java.version>
     </properties>
