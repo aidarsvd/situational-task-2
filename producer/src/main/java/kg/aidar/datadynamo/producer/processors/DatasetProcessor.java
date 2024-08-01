@@ -21,7 +21,26 @@ public class DatasetProcessor implements Runnable {
     @Override
     public void run() {
         try (InputStreamReader reader = new InputStreamReader(file.getInputStream());
-             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withHeader("timestamp", "region", "temperature", "humidity", "wind_speed", "pressure", "dew_point", "precipitation", "uv_index", "cloud_cover", "visibility", "radiation").withSkipHeaderRecord())) {
+             CSVParser csvParser = new CSVParser(
+                     reader,
+                     CSVFormat.DEFAULT
+                             .withHeader(
+                                     "timestamp",
+                                     "region",
+                                     "temperature",
+                                     "humidity",
+                                     "wind_speed",
+                                     "pressure",
+                                     "dew_point",
+                                     "precipitation",
+                                     "uv_index",
+                                     "cloud_cover",
+                                     "visibility",
+                                     "radiation"
+                             )
+                             .withSkipHeaderRecord()
+             )
+        ) {
             for (CSVRecord csvRecord : csvParser) {
                 WeatherData weatherData = new WeatherData(csvRecord);
                 RecordProcessor recordProcessor = new RecordProcessor(weatherData, rabbitTemplate);
