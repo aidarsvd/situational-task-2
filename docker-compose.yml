@@ -9,6 +9,8 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: data-dynamo
       RABBITMQ_DEFAULT_PASS: $1r0n8_pa$\|/089
+    networks:
+      - data-dynamo
 
   producer:
     build:
