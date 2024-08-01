@@ -1,0 +1,45 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: dynamo-rabbitmq
+    ports:
+      - "5672:5672"   # Port for RabbitMQ connections
+      - "15672:15672" # Port for RabbitMQ management console
+    environment:
+      RABBITMQ_DEFAULT_USER: data-dynamo
+      RABBITMQ_DEFAULT_PASS: $1r0n8_pa$\|/089
+
+  producer:
+    build:
+      context: ./producer
+      dockerfile: Dockerfile
+    container_name: producer
+    depends_on:
+      - rabbitmq
+    environment:
+      RABBIT_HOST: dynamo-rabbitmq
+      RABBIT_USERNAME: data-dynamo
+      RABBIT_PASSWORD: $1r0n8_pa$\|/089
+    ports:
+      - "4040:4040"
+    networks:
+      - data-dynamo
+
+  consumer:
+    build:
+      context: ./consumer
+      dockerfile: Dockerfile
+    container_name: consumer
+    depends_on:
+      - rabbitmq
+    environment:
+      RABBIT_HOST: dynamo-rabbitmq
+      RABBIT_USERNAME: data-dynamo
+      RABBIT_PASSWORD: $1r0n8_pa$\|/089
+    networks:
+      - data-dynamo
+
+networks:
+  data-dynamo:
+    driver: bridge
