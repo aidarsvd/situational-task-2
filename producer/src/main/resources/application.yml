@@ -1,4 +1,8 @@
 spring:
+  rabbitmq:
+    host: localhost
+    username: ddynamo
+    password: ddynamo
   servlet:
     multipart:
       max-file-size: 10MB
