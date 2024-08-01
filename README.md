@@ -1,6 +1,8 @@
 # Data Dynamo
 
-[//]: # (## YouTube video demonstration)
+## YouTube video demonstration
+
+https://youtu.be/5Gk4hfStHnI
 
 The project for processing the large dataset of weather data and calculate:
 1. Heat Index
