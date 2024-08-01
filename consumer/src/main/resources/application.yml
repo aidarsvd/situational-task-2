@@ -1,4 +1,14 @@
 spring:
+  datasource:
+    url: jdbc:postgresql://212.132.97.24:5432/caroserie_db
+    username: caroserie
+    password: caroserie
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
   rabbitmq:
     host: ${RABBIT_HOST:localhost}
     username: ${RABBIT_USERNAME:ddynamo}
