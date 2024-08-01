@@ -2,9 +2,8 @@ FROM maven:3.9.5 AS build
 
 WORKDIR /producer
 
-COPY ../pom.xml /producer/pom.xml
-
-COPY src /producer/module/src
+COPY src ./src
+COPY pom.xml .
 
 RUN mvn clean package -DskipTests
 

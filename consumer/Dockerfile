@@ -2,9 +2,8 @@ FROM maven:3.9.5 AS build
 
 WORKDIR /consumer
 
-COPY ../pom.xml /consumer/pom.xml
-
-COPY src /consumer/module/src
+COPY src ./src
+COPY pom.xml .
 
 RUN mvn clean package -DskipTests
 
